@@ -1,9 +1,10 @@
 ---
-import Header from '@/components/Header.astro';
-import '@/styles/global.css';
 import '@/styles/header-nav.css';
+import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-const { title = 'Astro Basics' } = Astro.props;
+import FakeLayout from '@/components/FakeLayout.astro';
+const { frontmatter } = Astro.props;
+const { title, pubDate, author, description, image } = frontmatter;
 ---
 
 <!doctype html>
@@ -13,10 +14,17 @@ const { title = 'Astro Basics' } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>Markdown - {title}</title>
   </head>
   <body>
     <Header />
+    <FakeLayout title={title}>
+      <p>Published on: {pubDate.toString().slice(0, 10)}</p>
+      <title>Markdown - {title}</title>
+      <p><em>{description}</em></p>
+      <p>Written by: {author}</p>
+      <img src={image.url} width="300" alt={image.alt} />
+    </FakeLayout>
     <slot />
     <Footer />
   </body>
