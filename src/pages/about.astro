@@ -18,6 +18,12 @@ const goal = 3;
 const myFunction = (content: string) => {
   return `${content}: ${goal}`;
 };
+
+const mySettingTypography = {
+  color: 'red',
+  fontWeight: 'bold',
+  textDecoration: 'underline',
+};
 ---
 
 <Layout title={title}>
@@ -36,20 +42,58 @@ const myFunction = (content: string) => {
   </ul>
   <p>My skills are:</p>
   <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
+    {skills.map((skill) => <li class="text-blue-500">{skill}</li>)}
   </ul>
 
-  {happy && <p>I am happy to be learning Astro!</p>}
+  {happy && <p class="text-3xl">I am happy to be learning Astro!</p>}
 
-  {finished && <p>I finished this tutorial!</p>}
+  {finished && <p>I finished this tutorial! with style inline</p>}
 
   {
     goal === 3 ? (
-      <p>My goal is to finish in 3 days.</p>
+      <p
+        style={{
+          backgroundColor: 'cyan',
+        }}
+      >
+        My goal is to finish in 3 days.
+      </p>
     ) : (
       <p>My goal is not 3 days.</p>
     )
   }
 
+  <span
+    >This content will be receive the internal script style from astro and not
+    effect the global style</span
+  >
+
+  <h2>Set the global style for this H2</h2>
+
+  <h3 class="text-blue-600">This tag will be effect by the script variable stronger than tailwind classes</h3>
+
   {myFunction('My achieve goal: ')}
 </Layout>
+
+<style>
+  span {
+    color: orange;
+    background-color: #000;
+  }
+</style>
+
+<style is:global>
+  h2 {
+    font-size: 24px;
+    font-style: italic;
+    text-decoration: underline;
+  }
+</style>
+
+<style define:vars={{ ...mySettingTypography }}>
+  h3 {
+    color: var(--color);
+    font-weight: var(--fontWeight);
+    text-decoration: var(--textDecoration);
+  }
+</style>
