@@ -12,12 +12,11 @@ const { title = 'Astro Basics' } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <slot />
 
-	  <slot />
-	   
-	  <a href="/">Home</a>
-	  <a href="/about">About</a>
-	  <a href="/blog">Blog</a>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
   </body>
 </html>
 
