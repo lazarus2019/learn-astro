@@ -1,12 +1,26 @@
 ---
 import Welcome from '@/components/Welcome.astro';
+import { ReactCount } from '@/frame/react/components/react-count';
+import { ReactWrapper } from '@/frame/react/components/react-wrapper';
 import Layout from '@/layouts/Layout.astro';
+import VueCount from '@/frame/vue/components/vue-count.vue';
+import SvelteCount from '@/frame/svelte/components/svelte-count.svelte';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <Welcome />
   <a href="/about">About page</a>
+  <ReactCount client:load title="test content" />
+
+  <ReactWrapper>
+    <p>Content 1</p>
+    <p>Content 2</p>
+  </ReactWrapper>
+  <Welcome />
+
+  <VueCount client:visible />
+
+  <SvelteCount client:visible />
 </Layout>
