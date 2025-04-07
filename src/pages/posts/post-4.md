@@ -1,7 +1,7 @@
 ---
 layout: '@/layouts/MarkDownPostLayout.astro'
 title: My Fourth Blog Post
-author: Astro Learner
+author: Krix Daniel
 description: "This post will show up on its own!"
 image:
     url: "https://docs.astro.build/default-og-image.png"
