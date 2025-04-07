@@ -1,7 +1,14 @@
 ---
+import BlogPost from '@/components/BlogPost.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import type { Post } from '@/types/post.types';
 
 // import Layout from '../layouts/Layout.astro';
+const allPosts = Object.values<Post>(
+  import.meta.glob('@/pages/posts/*.md', { eager: true })
+);
+
+console.log(allPosts);
 ---
 
 <BaseLayout>
@@ -10,8 +17,18 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <p>This is where I will post about my journey learning Astro.</p>
 
   <ul>
-    <li><a href="/posts/post-1/">Post 1</a></li>
-    <li><a href="/posts/post-2/">Post 2</a></li>
-    <li><a href="/posts/post-3/">Post 3</a></li>
+    {
+      allPosts.map((post) => (
+        <BlogPost title={post.frontmatter.title} url={post.url} />
+      ))
+    }
   </ul>
 </BaseLayout>
+
+<script
+  define:vars={{
+    allPosts,
+  }}
+>
+  console.log(allPosts);
+</script>
