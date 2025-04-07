@@ -1,0 +1,37 @@
+---
+import Social from './Social.astro';
+
+const socials = [
+  {
+    platform: 'github',
+    username: 'lazarus2019',
+  },
+  {
+    platform: 'youtube',
+    username: 'freecodeweb',
+  },
+  {
+    platform: 'instagram',
+    username: 'krix.daniel',
+  },
+];
+---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  {
+    socials.map((social) => (
+      <p>
+        Learn more about my projects on
+        <Social {...social} />!
+      </p>
+    ))
+  }
+</footer>

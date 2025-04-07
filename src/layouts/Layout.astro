@@ -1,4 +1,6 @@
 ---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 import '../styles/global.css';
 const { title = 'Astro Basics' } = Astro.props;
 ---
@@ -13,11 +15,9 @@ const { title = 'Astro Basics' } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Header />
     <slot />
-
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
+    <Footer />
   </body>
 </html>
 
@@ -29,3 +29,7 @@ const { title = 'Astro Basics' } = Astro.props;
     height: 100%;
   }
 </style>
+
+<script>
+  import '../scripts/menu';
+</script>
