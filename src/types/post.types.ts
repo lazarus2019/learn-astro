@@ -16,6 +16,7 @@ export type MarkdownPost = {
     layout?: string,
     pubDate: string
     tags: string[],
+    minutesRead: string
 }
 
 export type Post = Glob & {

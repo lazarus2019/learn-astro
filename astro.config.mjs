@@ -10,9 +10,13 @@ import vue from '@astrojs/vue';
 import svelte from '@astrojs/svelte';
 
 import path from 'node:path';
+import { remarkReadingTime } from './src/remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+  },
   vite: {
     plugins: [tailwindcss()],
     // resolve: {
