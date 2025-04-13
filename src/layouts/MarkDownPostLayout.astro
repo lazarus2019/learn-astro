@@ -5,11 +5,12 @@ import Footer from '@/components/Footer.astro';
 import FakeLayout from '@/components/FakeLayout.astro';
 import type { MarkdownPost } from '@/types/post.types';
 import PageViewCount from '@/components/PageViewCount.astro';
+import PostComments from '@/components/PostComments.astro';
 const { frontmatter } = Astro.props;
 const { title, pubDate, author, description, image, tags, minutesRead } =
   frontmatter as MarkdownPost;
 
-  const pageUrl = new URL(Astro.url.pathname, Astro.url.origin).href
+const pageUrl = new URL(Astro.url.pathname, Astro.url.origin).href;
 ---
 
 <!doctype html>
@@ -41,8 +42,9 @@ const { title, pubDate, author, description, image, tags, minutesRead } =
       }
     </div>
     <p>Reading time: {minutesRead}</p>
-    <PageViewCount url={pageUrl}/>
+    <PageViewCount url={pageUrl} />
     <slot />
+    <PostComments />
     <Footer />
   </body>
 </html>
