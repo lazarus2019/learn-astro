@@ -13,6 +13,21 @@ type Post = {
 };
 const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 const dataMethod2: Post[] = await res.json();
+
+// Data Method 3: Import Local Files
+import dataMethod3Json from '@/data/authors.json';
+import dataMethod3Ts from '@/data/authors';
+import type { MarkdownInstance } from 'astro';
+
+// Deprecated: Astro.glob (ref: https://docs.astro.build/en/guides/upgrade-to/v5/#what-should-i-do-3)
+// const dataMethod3Glob = await Astro.glob('@/data/**/*md'); // (Deprecated)
+
+// Read more MarkdownInstance: https://docs.astro.build/en/reference/api-reference/#markdown-files
+const dataMethod3Glob = Object.values<MarkdownInstance<{}>>(
+  await import.meta.glob('@/data/*.md', {
+    eager: true,
+  })
+);
 ---
 
 <BaseLayout title="Work with astro data">
@@ -35,8 +50,29 @@ const dataMethod2: Post[] = await res.json();
 
     <div>
       <h2>3. Import Local Files</h2>
+      <h3>JSON file</h3>
       <ul>
-        {dataMethod1.map((name) => <li>{name}</li>)}
+        {dataMethod3Json.map((author) => <li>{author.name}</li>)}
+      </ul>
+      <h3>Typescript file</h3>
+      <ul>
+        {dataMethod3Ts.map((author) => <li>{author.name}</li>)}
+      </ul>
+      <h3>Glob (markdown file)</h3>
+      <ul>
+        {
+          dataMethod3Glob.map((markdown) => (
+            <Fragment set:html={markdown.compiledContent()} />
+          ))
+        }
+        <!-- Alternative way to render markdown content -->
+        {
+          dataMethod3Glob.map((markdown) => {
+            const Content = markdown.Content;
+
+            return <Content />;
+          })
+        }
       </ul>
     </div>
 
