@@ -18,16 +18,20 @@ const dataMethod2: Post[] = await res.json();
 import dataMethod3Json from '@/data/authors.json';
 import dataMethod3Ts from '@/data/authors';
 import type { MarkdownInstance } from 'astro';
+import { getCollection } from 'astro:content';
 
 // Deprecated: Astro.glob (ref: https://docs.astro.build/en/guides/upgrade-to/v5/#what-should-i-do-3)
 // const dataMethod3Glob = await Astro.glob('@/data/**/*md'); // (Deprecated)
 
 // Read more MarkdownInstance: https://docs.astro.build/en/reference/api-reference/#markdown-files
 const dataMethod3Glob = Object.values<MarkdownInstance<{}>>(
-  await import.meta.glob('@/data/*.md', {
+  import.meta.glob('@/data/*.md', {
     eager: true,
   })
 );
+
+// Data Method 4: Content Collections
+const dataMethod4 = await getCollection('product');
 ---
 
 <BaseLayout title="Work with astro data">
@@ -78,8 +82,52 @@ const dataMethod3Glob = Object.values<MarkdownInstance<{}>>(
 
     <div>
       <h2>4. Content Collections</h2>
+      <details>
+        <summary>Data type</summary>
+        <ul>
+          <li>
+            <strong>id:</strong> full file name <strong>(car1.md)</strong>
+          </li>
+          <li><strong>slug:</strong> file name <strong>(car1)</strong></li>
+          <li>
+            <strong>filePath:</strong> file path from src/ <strong
+              >(ex: src/content/car/car1.md)</strong
+            >
+          </li>
+          <li><strong>body:</strong> markdown body content</li>
+          <li><strong>collection:</strong> the parent collection name</li>
+          <li>
+            <strong>data:</strong> the frontmatter <strong
+              >(infer the defined schema)</strong
+            >
+          </li>
+          <li>
+            <strong>rendered:</strong> html and metadata
+            <ul>
+              <li>html: content convert from markdown to html</li>
+              <li>
+                metadata: information of headings, images (ex/internal),
+                frontmatter, imagePaths
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </details>
       <ul>
-        {dataMethod1.map((name) => <li>{name}</li>)}
+        {dataMethod4.map((car) => <li>{car.data.name}</li>)}
+      </ul>
+      <ul>
+        {
+          dataMethod4.map((car) => {
+            const html = car.rendered?.html;
+
+            return (
+              <li>
+                <Fragment set:html={html} />
+              </li>
+            );
+          })
+        }
       </ul>
     </div>
 
