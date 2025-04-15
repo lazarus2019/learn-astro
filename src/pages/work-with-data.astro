@@ -1,4 +1,5 @@
 ---
+import { APICard } from '@/components/APICard';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 // Data Method 1: Local Frontmatter Data
@@ -132,9 +133,10 @@ const dataMethod4 = await getCollection('product');
     </div>
 
     <div>
-      <h2>5. JSON endpoints</h2>
+      <h2>5. Create JSON endpoints</h2>
       <ul>
         {dataMethod1.map((name) => <li>{name}</li>)}
+        <APICard client:load />
       </ul>
     </div>
   </div>
