@@ -14,6 +14,9 @@ import { remarkReadingTime } from './src/remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  // image: {
+  //   domains: []
+  // },
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
