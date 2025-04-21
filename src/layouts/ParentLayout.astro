@@ -1,0 +1,20 @@
+---
+import ChildLayout from './ChildLayout.astro';
+---
+
+<ChildLayout>
+  <table class="bg-white">
+    <thead class="sticky top-0 bg-white"><slot name="header" /></thead>
+    <tbody class="[&_tr:nth-child(odd)]:bg-gray-100"><slot name="body" /></tbody
+    >
+  </table>
+  <p>Parent Layout</p>
+  <slot name="head" slot="head" />
+  <slot />
+  <div>
+    <p>Append to slot children footer</p><slot
+      name="footer"
+      slot="children-footer"
+    />
+  </div>
+</ChildLayout>

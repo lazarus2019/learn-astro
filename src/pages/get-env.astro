@@ -1,0 +1,36 @@
+---
+import { ALGOLIA_APP_ID } from 'astro:env/client';
+import { ALGOLIA_API_KEY, getSecret, PORT } from 'astro:env/server';
+
+getSecret('PORT');
+
+console.log(PORT, ALGOLIA_APP_ID, ALGOLIA_API_KEY);
+---
+
+<p>
+  By default, secrets are only validated at runtime. You can enable validating
+  private variables on start by configuring validateSecrets: true.
+</p>
+
+<p>
+  astro:env is a virtual module which means it can only be used inside the Astro
+  context. For example, you can use it in:
+</p>
+
+<p>
+  Middlewares Astro routes and endpoints Astro components Framework components
+  Modules
+</p>
+
+<p>
+  You cannot use it in the following and will have to resort to process.env:
+  astro.config.mjs Scripts
+</p>
+
+<script>
+  import { ALGOLIA_APP_ID } from 'astro:env/client';
+  import { ALGOLIA_API_KEY } from 'astro:env/server';
+  import { PORT } from 'astro:env/server';
+
+  console.log(PORT, ALGOLIA_API_KEY, ALGOLIA_APP_ID);
+</script>

@@ -10,4 +10,12 @@ const { title } = Astro.props;
   Fake Layout - this file not in layouts directory
   <h1>{title}</h1>
   <slot />
+  <p class:list={['text-stone-100', 'text-3xl', { test: true }]}>sadas</p>
 </div>
+
+
+<style>
+  .test{
+    color: red
+  }
+</style>

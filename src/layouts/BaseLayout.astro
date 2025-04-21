@@ -1,5 +1,10 @@
 ---
+interface Props {
+  title?: string;
+}
 const { title = 'asd' } = Astro.props;
+const isProd = import.meta.env.PROD
+const isDev = import.meta.env.DEV
 ---
 
 <!doctype html>
@@ -9,9 +14,20 @@ const { title = 'asd' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <slot name="header" />
   </head>
   <body>
     Header Component in BaseLayout
     <slot />
+
+    <p>is dev: {isDev ? 'yes': 'no'}</p>
+    <p>is production: {isProd ? 'yes': 'no'}</p>
+
+    <div>
+      <p>Footer</p>
+      <slot name="footer">
+        <p>Fallback footer slot when is unavailable</p>
+      </slot>
+    </div>
   </body>
 </html>

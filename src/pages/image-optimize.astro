@@ -2,27 +2,38 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import astroImage from '@/assets/3astro.png';
 import easterImage from '@/assets/easter2.jpg';
-import { Image, Picture } from 'astro:assets';
+import { getImage, Image, Picture } from 'astro:assets';
+import ResponsiveImage from '@/components/ResponsiveImage.astro';
+
+const optimizedImage = await getImage({
+  src: astroImage,
+  format: 'avif',
+});
+
+console.log('optimizedImage', optimizedImage);
 ---
 
 <BaseLayout title="Optimize image feature in astro 3.0">
-  <!-- <img src={astroImage.src} decoding="sync" /> -->
-  <!-- <img src="../assets/3astro.png" /> -->
-  <!-- <Image src={easterImage} alt="Astro v3.0" format='png' /> -->
-  <!-- <Image src={easterImage} alt="Astro v3.0" format='jpg' /> -->
-  <!-- <Image src={easterImage} alt="Astro v3.0" format='avif' /> -->
-  <!-- <Image src={easterImage} alt="Astro v3.0" format='webp' /> -->
-  <p>Import image from src</p>
-  <Image src={easterImage} alt="Astro v3.0" format="jpeg" quality="high" />
-  <Picture src={easterImage} alt="Picture Astro v3.0" formats={['']} />
+  <ResponsiveImage sizes={[300, 400, 700]} src={astroImage} slot="footer" />
+  <div style=`background-image: url(${optimizedImage.src})`>
+    <!-- <img src={astroImage.src} decoding="sync" /> -->
+    <!-- <img src="../assets/3astro.png" /> -->
+    <!-- <Image src={easterImage} alt="Astro v3.0" format='png' /> -->
+    <!-- <Image src={easterImage} alt="Astro v3.0" format='jpg' /> -->
+    <!-- <Image src={easterImage} alt="Astro v3.0" format='avif' /> -->
+    <!-- <Image src={easterImage} alt="Astro v3.0" format='webp' /> -->
+    <p>Import image from src</p>
+    <Image src={easterImage} alt="Astro v3.0" format="jpeg" quality="high" />
+    <Picture src={easterImage} alt="Picture Astro v3.0" formats={['']} />
 
-  <p>Import image from public</p>
-  <Image src="/astro-icon.svg" alt="Astro icon" width={400} height={280} />
-  <p>Import image from external</p>
-  <Image
-    src="https://astro.build/_astro/blog-post-starlight-034.B1ddT7Uk_Z1MiAfc.webp"
-    alt="Blog post starlight"
-    width={400}
-    height={280}
-  />
+    <p>Import image from public</p>
+    <Image src="/astro-icon.svg" alt="Astro icon" width={400} height={280} />
+    <p>Import image from remote/external</p>
+    <Image
+      src="https://astro.build/_astro/blog-post-starlight-034.B1ddT7Uk_Z1MiAfc.webp"
+      alt="Blog post starlight"
+      width={400}
+      height={280}
+    />
+  </div>
 </BaseLayout>

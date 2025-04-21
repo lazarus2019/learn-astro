@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -11,12 +11,33 @@ import svelte from '@astrojs/svelte';
 
 import path from 'node:path';
 import { remarkReadingTime } from './src/remark-reading-time.mjs';
+import { loadEnv } from 'vite';
 
+// const {PORT} = loadEnv(process.env.NODE_ENV, process.cwd(), '');
+// console.log(PORT)
 // https://astro.build/config
 export default defineConfig({
-  // image: {
-  //   domains: []
-  // },
+  env: {
+    schema: {
+      ALGOLIA_APP_ID: envField.string({
+        context: 'client',
+        access: 'public',
+        optional: false,
+      }),
+      PORT: envField.number({
+        context: 'server',
+        access: 'public',
+        default: 4321,
+      }),
+      ALGOLIA_API_KEY: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+    },
+  },
+  image: {
+    domains: ['astro.build'],
+  },
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },

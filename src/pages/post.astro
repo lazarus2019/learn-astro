@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ParentLayout from '@/layouts/ParentLayout.astro';
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+// Get content from markdown via content collection
+const post = await getEntry('post', 'post-1');
+
+const { Content } = await post.render();
+
+console.log(post);
+---
+
+<ParentLayout title={post?.data.title}>
+  <title slot="head">Override title ChildrenLayout Astro</title>
+  <h1>{post?.data.title}</h1>
+
+  <!-- <Image src={post?.data.cover} alt={post.data.coverAlt} format="avif" /> -->
+
+  <Content slot="footer" />
+
+  <Fragment slot="header">
+    <!-- pass table header -->
+    <tr><th>Product name</th><th>Stock units</th></tr>
+  </Fragment>
+
+  <Fragment slot="body">
+    <!-- pass table body -->
+    <tr><td>Flip-flops</td><td>64</td></tr>
+    <tr><td>Boots</td><td>32</td></tr>
+    <tr><td>Sneakers</td><td class="text-red-500">0</td></tr>
+  </Fragment>
+</ParentLayout>
