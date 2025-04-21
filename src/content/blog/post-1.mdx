@@ -1,0 +1,15 @@
+---
+title: 'My first MDX post from frontmatter'
+author: 'Houston'
+---
+
+import { Social } from '@/components/Social.astro';
+export const title = 'My first MDX post from variable';
+
+# {title}
+
+# {frontmatter.title}
+
+Written by: {frontmatter.author}
+
+<Social />

@@ -12,6 +12,8 @@ import svelte from '@astrojs/svelte';
 import path from 'node:path';
 import { remarkReadingTime } from './src/remark-reading-time.mjs';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
   // image: {
@@ -33,17 +35,13 @@ export default defineConfig({
   },
 
   site: 'https://deploy-astro-app.netlify.app',
-  integrations: [
-    react({
-      include: ['**/react/*'],
-    }),
-    vue({
-      devtools: true,
-    }),
-    svelte({
-      extensions: ['.svelte'],
-    }),
-  ],
+  integrations: [react({
+    include: ['**/react/*'],
+  }), vue({
+    devtools: true,
+  }), svelte({
+    extensions: ['.svelte'],
+  }), mdx()],
   server: ({ command }) => ({
     port: command === 'preview' ? 1234 : 4321,
   }),
