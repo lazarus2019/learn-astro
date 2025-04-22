@@ -1,0 +1,13 @@
+---
+import Blockquote from '@/components/Blockquote.astro';
+import { Content, components } from './post-1.mdx';
+---
+
+<h2>Page astro</h2>
+
+<Content
+  components={{
+    ...components,
+    blockquote: Blockquote,
+  }}
+/>
