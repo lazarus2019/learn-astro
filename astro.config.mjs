@@ -24,24 +24,29 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
-    // resolve: {
-    //   alias: {
-    //     '@': path.resolve(__dirname, 'src'),
-    //   },
-    // },
+    resolve: {
+      alias: {
+        '@': path.resolve('./src'),
+      },
+    },
     server: {
       port: 3000,
     },
   },
 
   site: 'https://deploy-astro-app.netlify.app',
-  integrations: [react({
-    include: ['**/react/*'],
-  }), vue({
-    devtools: true,
-  }), svelte({
-    extensions: ['.svelte'],
-  }), mdx()],
+  integrations: [
+    react({
+      include: ['**/react/*'],
+    }),
+    vue({
+      devtools: true,
+    }),
+    svelte({
+      extensions: ['.svelte'],
+    }),
+    mdx(),
+  ],
   server: ({ command }) => ({
     port: command === 'preview' ? 1234 : 4321,
   }),
