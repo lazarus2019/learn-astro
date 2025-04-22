@@ -1,0 +1,19 @@
+---
+title: 'My first MDX post from frontmatter'
+author: 'Houston'
+---
+
+import { Blockquote } from '@/components/Blockquote.astro';
+import { ReactCount } from '@/frame/react/components/react-count';
+export const title = 'My first MDX post from variable';
+export const components = { blockquote: Blockquote };
+
+# {title}
+
+# {frontmatter.title}
+
+Written by: {frontmatter.author}
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+
+<ReactCount title="react component" client:load />
