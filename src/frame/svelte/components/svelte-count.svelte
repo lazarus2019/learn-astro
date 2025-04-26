@@ -1,15 +1,15 @@
 <script lang="ts">
-	let name: string = 'Svelte world';
+let name: string = "Svelte world";
 
-	function greet(name: string) {
-		alert(`Hello, ${name}!`);
-	}
+function greet(name: string) {
+	alert(`Hello, ${name}!`);
+}
 
-	let count:number = 0
+let count: number = 0;
 
-	const setCount = (newCount: number)=>{
-		count = newCount
-	}
+const setCount = (newCount: number) => {
+	count = newCount;
+};
 </script>
 <br>
 <button onclick={(e: Event) => greet(e.target.innerText)}>
