@@ -1,0 +1,98 @@
+---
+title: 'MarkdownX Components'
+pubDate: 2025-09-04
+description: 'A great thing about MDX is that you can write markdown and specify a component to be used instead of an HTML element. The following table lists those HTML elements that can be overwritten, the needed markdown, and what the normal JSX equivalent would be.'
+author: 'Krix Daniel'
+image:
+  url: 'https://docs.astro.build/assets/rose.webp'
+  alt: 'The Astro logo on a dark background with a pink glow.'
+tags: ['astro', 'blogging', 'learning in public']
+layout: '@/layouts/MarkdownXLayout.astro'
+---
+
+import { ReactCount } from '@/frame/react/components/react-count';
+import VueCount from '@/frame/vue/components/vue-count.vue';
+import SvelteCount from '@/frame/svelte/components/svelte-count.svelte';
+import Button from '@/components/Button.astro';
+
+## What is MDX?
+
+<div className="flex">
+  This article explains what the MDX format is. It shows how markdown, JSX,
+  JavaScript expressions, and `import` and `export` statements in ESM can be
+  used inside MDX. See{' '}
+  <a href="https://mdxjs.com/docs/getting-started/" target="_blank">
+    § Getting started
+  </a>{' '}
+  for details on how to integrate MDX into your project. See § Using MDX when
+  you’re already all set up to use MDX.
+</div>
+
+## Use external components in MarkdownX
+
+<p>Vue count component</p>
+<VueCount client:visible />
+
+<p>Svelte count component</p>
+<SvelteCount client:visible />
+
+<p>React count component</p>
+<ReactCount client:visible />
+
+<p>Astro component</p>
+<Button>Click me astro</Button>
+
+## [Markdown Component](https://mdxjs.com/table-of-components/#components)
+
+---
+
+[MDX](https://mdxjs.com 'title')
+
+> A greater than…
+
+A backslash\
+before a line break…
+
+Some `backticks` for inline.
+
+```javascript
+backtick.fences('for blocks');
+```
+
+Some _asterisks_ for emphasis.
+
+# One number sign…
+
+## Two number signs…
+
+### Three number signs…
+
+#### Four number signs…
+
+##### Five number signs…
+
+###### Six number signs…
+
+Three asterisks for a thematic break:
+
+---
+
+![Alt text](/astro-icon.svg 'Astro icon svg')
+
+- asterisks for unordered items
+
+1. decimals and a dot for ordered items
+
+1. decimals and a dot for ordered
+
+Just some text…
+
+```javascript
+backtick.fences('for blocks');
+```
+
+Two **asterisks** for strong.
+
+- asterisks for unordered
+
+[ref markdown basic syntax](https://www.markdownguide.org/basic-syntax/)
