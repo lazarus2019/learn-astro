@@ -1,0 +1,23 @@
+---
+const dataId = 'data-component';
+const dataValue = 'button';
+---
+
+<button data-component="button">
+  <slot />
+</button>
+
+<script
+  define:vars={{
+    dataId,
+    dataValue,
+  }}
+>
+  const button = document.querySelector(`[${dataId}="${dataValue}"]`);
+
+  const handleOnClick = () => {
+    alert('Handle click on astro component');
+  };
+
+  button.addEventListener('click', handleOnClick);
+</script>

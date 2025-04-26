@@ -1,0 +1,83 @@
+---
+import '@/styles/global.css';
+import '@/styles/header-nav.css';
+import Header from '@/components/Header.astro';
+import PostHeader from '@/components/PostHeader.astro';
+import type { MarkdownPost } from '@/types/post.types';
+
+interface Props {
+  frontmatter: MarkdownPost;
+}
+const { frontmatter } = Astro.props;
+const { author, description, image, pubDate, title, minutesRead, tags } =
+  frontmatter;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>MarkdownX - {title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <PostHeader
+        author={author}
+        description={description}
+        image={image}
+        pubDate={pubDate}
+        title={title}
+      />
+      <div class="tags">
+        {
+          tags.map((tag) => (
+            <p class="tag">
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </p>
+          ))
+        }
+      </div>
+      <p>Reading time: {minutesRead}</p>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  main {
+    max-width: 1280px;
+    margin-inline: auto;
+  }
+
+  a {
+    color: #00539f;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
+  }
+</style>
+
+<script>
+  import '@/scripts/menu';
+</script>

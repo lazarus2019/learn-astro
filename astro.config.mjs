@@ -14,6 +14,10 @@ import { remarkReadingTime } from './src/remark-reading-time.mjs';
 
 import mdx from '@astrojs/mdx';
 
+import remarkToc from 'remark-toc';
+
+import rehypePresetMinify from 'rehype-preset-minify';
+
 // https://astro.build/config
 export default defineConfig({
   // image: {
@@ -45,7 +49,20 @@ export default defineConfig({
     svelte({
       extensions: ['.svelte'],
     }),
-    mdx(),
+    mdx({
+      // mdx will be extends the markdown configuration as default
+      // use this config for ignore extendMarkdownConfig: false
+      syntaxHighlight: 'shiki',
+      shikiConfig: { theme: 'dracula' },
+      remarkPlugins: [remarkToc],
+      rehypePlugins: [rehypePresetMinify],
+      remarkRehype: { footnoteLabel: 'Footnotes' },
+      gfm: false,
+      // extendMarkdownConfig: false,
+      // optimize: true,
+      // recmaPlugins: [], // define output etree (@seemore: https://github.com/estree/estree)
+      // smartypants: false // smartypants (https://daringfireball.net/projects/smartypants/)
+    }),
   ],
   server: ({ command }) => ({
     port: command === 'preview' ? 1234 : 4321,
