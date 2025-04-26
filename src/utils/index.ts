@@ -1,21 +1,11 @@
 import type { Post } from "@/types/post.types";
 
-const getRecentPosts = (data: Post[]) => {
-    
-}
+const getRecentPosts = (data: Post[]) => {};
 
-const makePagination = () => {
-    
-}
+const makePagination = () => {};
 
-const sortPosts = () => {
-    
-}
+const sortPosts = () => {};
 
-const getHeadings = () => {
-    
-}
+const getHeadings = () => {};
 
-const getRelativePosts = () => {
-    
-}
+const getRelativePosts = () => {};
