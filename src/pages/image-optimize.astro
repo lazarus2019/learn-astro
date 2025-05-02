@@ -1,8 +1,9 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import astroImage from "@/assets/3astro.png";
-import easterImage from "@/assets/easter2.jpg";
-import { Image, Picture } from "astro:assets";
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import astroImage from '@/assets/3astro.png';
+import thumbnail from '@/assets/thumbnail.png';
+import easterImage from '@/assets/easter2.jpg';
+import { Image, Picture } from 'astro:assets';
 ---
 
 <BaseLayout title="Optimize image feature in astro 3.0">
@@ -15,6 +16,14 @@ import { Image, Picture } from "astro:assets";
   <p>Import image from src</p>
   <Image src={easterImage} alt="Astro v3.0" format="jpeg" quality="high" />
   <Picture src={easterImage} alt="Picture Astro v3.0" formats={['']} />
+
+  <Image
+    src={thumbnail}
+    alt="Thumbnail let var const"
+    width={600}
+    height={480}
+    quality={60}
+  />
 
   <p>Import image from public</p>
   <Image src="/astro-icon.svg" alt="Astro icon" width={400} height={280} />
