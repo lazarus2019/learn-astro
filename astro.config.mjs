@@ -72,6 +72,9 @@ export default defineConfig({
   server: ({ command }) => ({
     port: command === 'preview' ? 1234 : 4321,
   }),
+  experimental: {
+    session: true,
+  },
 
   adapter: netlify(),
 });
