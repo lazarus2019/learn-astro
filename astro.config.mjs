@@ -18,6 +18,8 @@ import remarkToc from 'remark-toc';
 
 import rehypePresetMinify from 'rehype-preset-minify';
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   // image: {
@@ -26,6 +28,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
+
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -39,6 +42,7 @@ export default defineConfig({
   },
 
   site: 'https://deploy-astro-app.netlify.app',
+
   integrations: [
     react({
       include: ['**/react/*'],
@@ -64,7 +68,10 @@ export default defineConfig({
       // smartypants: false // smartypants (https://daringfireball.net/projects/smartypants/)
     }),
   ],
+
   server: ({ command }) => ({
     port: command === 'preview' ? 1234 : 4321,
   }),
+
+  adapter: netlify(),
 });

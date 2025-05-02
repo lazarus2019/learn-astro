@@ -1,38 +1,52 @@
 ---
-import { APICard } from "@/components/APICard";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import { APICard } from '@/components/APICard';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
 // Data Method 1: Local Frontmatter Data
-const dataMethod1 = ["Chris", "John", "Krix"];
+const dataMethod1 = ['Chris', 'John', 'Krix'];
 
 // Data Method 2: Fetch Remote Data
 type Post = {
-	userId: number;
-	id: number;
-	title: string;
-	body: string;
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
 };
-const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 const dataMethod2: Post[] = await res.json();
 
 // Data Method 3: Import Local Files
-import dataMethod3Json from "@/data/authors.json";
-import dataMethod3Ts from "@/data/authors";
-import type { MarkdownInstance } from "astro";
-import { getCollection } from "astro:content";
+import dataMethod3Json from '@/data/authors.json';
+import dataMethod3Ts from '@/data/authors';
+import type { MarkdownInstance } from 'astro';
+import { getCollection, type ReferenceDataEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
 
 // Deprecated: Astro.glob (ref: https://docs.astro.build/en/guides/upgrade-to/v5/#what-should-i-do-3)
 // const dataMethod3Glob = await Astro.glob('@/data/**/*md'); // (Deprecated)
 
 // Read more MarkdownInstance: https://docs.astro.build/en/reference/api-reference/#markdown-files
 const dataMethod3Glob = Object.values<MarkdownInstance<{}>>(
-	import.meta.glob("@/data/*.md", {
-		eager: true,
-	}),
+  import.meta.glob('@/data/*.md', {
+    eager: true,
+  })
 );
 
 // Data Method 4: Content Collections
-const dataMethod4 = await getCollection("product");
+const dataMethod4 = await getCollection('product');
+
+// const temp = await getEntries([
+//   {
+//     collection: 'product',
+//     slug: 'car1',
+//   },
+//   {
+//     collection: 'product',
+//     slug: 'car2',
+//   },
+// ]);
+
+// console.log(temp);
 ---
 
 <BaseLayout title="Work with astro data">
