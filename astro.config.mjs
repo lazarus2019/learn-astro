@@ -43,6 +43,13 @@ export default defineConfig({
 
   site: 'https://deploy-astro-app.netlify.app',
 
+  image: {
+    experimentalLayout: 'responsive',
+    experimentalObjectFit: 'cover',
+    experimentalObjectPosition: 'center',
+    experimentalBreakpoints: [480, 640, 768, 992, 1280, 1440],
+  },
+
   integrations: [
     react({
       include: ['**/react/*'],
@@ -74,6 +81,7 @@ export default defineConfig({
   }),
   experimental: {
     session: true,
+    responsiveImages: true,
   },
 
   adapter: netlify(),
