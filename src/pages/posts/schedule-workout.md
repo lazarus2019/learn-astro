@@ -1,3 +1,22 @@
+---
+title: 'Exercises'
+pubDate: 2025-05-15
+description: 'Example folder structure'
+author: 'Krix Daniel'
+image:
+  url: 'https://docs.astro.build/assets/rose.webp'
+  alt: 'The Astro logo on a dark background with a pink glow.'
+tags: ['astro', 'blogging', 'learning in public']
+---
+
+- Features:
+  - Click on exercise show dialog guide (static image | gif | video reference), below have alternative for dumbbell or no equipment
+  - Tab for each exercise part (Legs, Arms, Upper body, Back)
+  - Exercise program (5-day split, 6-day split), guide beginner | experimented (sets & reps)
+  - Search for exercise guide
+  - Optional:
+    - Set goal and request AI to generate program
+
 Assets:
 
 - image
@@ -217,3 +236,69 @@ Calf extensions: 4 sets (10 reps)
 3: Bulgarian Split Squat : 3 sets x 8
 4: DB Stiff Leg Deadlift : 6 sets x 6
 5: Calf Raise : 6 sets x 30
+
+## 🦵 Legs (Quads, Glutes, Hamstrings, Calves)
+
+| **Exercise Name**         | **Dumbbell Alternative**                 | **No-Equipment Alternative**          |
+| ------------------------- | ---------------------------------------- | ------------------------------------- |
+| Squat                     | Goblet Squat / DB Front Squat            | Bodyweight Squat / Wall Sit           |
+| Leg Press                 | DB Step-Ups / Bulgarian Split Squat      | Step-Ups / Jump Squats                |
+| Bulgarian Split Squat     | DB Bulgarian Split Squat                 | Bulgarian Split Squat (Bodyweight)    |
+| Lunges                    | DB Lunges / Walking Lunges               | Walking / Static / Reverse Lunges     |
+| Leg Extension             | DB Leg Extension (lying with towel/band) | Wall Sit / Sissy Squat                |
+| Leg Curl / Hamstring Curl | DB Hamstring Curl (on floor)             | Glute Bridge / Nordic Hamstring Curl  |
+| Deadlift                  | DB Deadlift                              | Hip Hinge / Glute Bridge              |
+| Romanian Deadlift (RDL)   | DB RDL                                   | Single-Leg Glute Bridge               |
+| Bridges / Hip Thrust      | DB Glute Bridge                          | Glute Bridge / Single-Leg Bridge      |
+| Back Extension            | DB Hyperextensions (on bench)            | Supermans                             |
+| Calf Raise / Extension    | DB Standing/Seated Calf Raise            | Calf Raise on Step / Single-Leg Raise |
+
+## 🏋️ Back (Lats, Rhomboids, Traps, Lower Back)
+
+| **Exercise Name**     | **Dumbbell Alternative**            | **No-Equipment Alternative**        |
+| --------------------- | ----------------------------------- | ----------------------------------- |
+| Pull-Ups              | Weighted Pull-Ups / Inverted DB Row | Pull-Ups / Towel Rows               |
+| Lat Pulldown          | One-Arm DB Row / DB Pullover        | Inverted Rows / Pull-Ups            |
+| Cable Row / T-Bar Row | DB Bent-Over Row / One-Arm Row      | Backpack Row / Towel Row            |
+| Bent-Over Row         | DB Bent-Over Row                    | Inverted Rows                       |
+| Shrugs                | DB Shrugs                           | Isometric Trap Hold / Shrug Squeeze |
+| Face Pulls            | DB Reverse Fly / Band Pull-Apart    | Floor Y-T-W Raises                  |
+| Pull-Overs            | DB Pull-Overs                       | Floor Reachovers / Overhead Hold    |
+| Back Extension        | DB Hyperextensions (on bench)       | Supermans                           |
+
+## 💪 Arms (Biceps & Triceps)
+
+| **Exercise Name**     | **Dumbbell Alternative**            | **No-Equipment Alternative**        |
+| --------------------- | ----------------------------------- | ----------------------------------- |
+| Pull-Ups              | Weighted Pull-Ups / Inverted DB Row | Pull-Ups / Towel Rows               |
+| Lat Pulldown          | One-Arm DB Row / DB Pullover        | Inverted Rows / Pull-Ups            |
+| Cable Row / T-Bar Row | DB Bent-Over Row / One-Arm Row      | Backpack Row / Towel Row            |
+| Bent-Over Row         | DB Bent-Over Row                    | Inverted Rows                       |
+| Shrugs                | DB Shrugs                           | Isometric Trap Hold / Shrug Squeeze |
+| Face Pulls            | DB Reverse Fly / Band Pull-Apart    | Floor Y-T-W Raises                  |
+| Pull-Overs            | DB Pull-Overs                       | Floor Reachovers / Overhead Hold    |
+| Back Extension        | DB Hyperextensions (on bench)       | Supermans                           |
+
+## 🧍 Upper Body (Chest, Shoulders, Mixed Push)
+
+| **Exercise Name**        | **Dumbbell Alternative**                    | **No-Equipment Alternative**     |
+| ------------------------ | ------------------------------------------- | -------------------------------- |
+| Curls (Barbell, Machine) | DB Bicep Curl / Incline / Alt / Hammer Curl | Towel Curls / Isometric Curls    |
+| Hammer Curls             | DB Hammer Curls                             | Towel Curl w/ Isometric Hold     |
+| Preacher Curls           | Seated DB Curls (back supported)            | Towel Curls (leaned forward)     |
+| Tricep Pushdown          | DB Kickbacks / Overhead Extensions          | Dips / Diamond Push-Ups          |
+| Skull Crushers           | DB Skull Crushers                           | Close-Grip Push-Ups / Bench Dips |
+| Dips                     | Bench Dips / DB Weighted Dips               | Chair/Parallel Bar Dips          |
+
+## Warm up
+
+| **Day**                              | **Focus**                         | **Warm-up Steps**                                                                                                                                                                                                                    |
+| ------------------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Upper (5-day)**                    | Chest, Shoulders, Back            | 1. Jumping Jacks / Arm Swings – 1 min<br>2. Arm Circles – 30 sec each<br>3. Scapular Push-ups – 10–12 reps<br>4. Band Pull-Aparts / Face Pulls – 15 reps<br>5. Wall Slides – 10 reps<br>6. Light Bench Press or Row – 2 warm-up sets |
+| **Lower (5-day)**                    | Quads, Hamstrings, Glutes, Calves | 1. High Knees / Jump Rope – 1–2 mins<br>2. Bodyweight Squats – 15 reps<br>3. Hip Circles – 10 reps/side<br>4. Glute Bridge – 15 reps<br>5. Leg Swings – 10 per leg<br>6. Calf Raises – 15 reps<br>7. Warm-up Squats/RDLs – 2 sets    |
+| **Push (5-day / 6-day hypertrophy)** | Chest, Shoulders, Triceps         | 1. Arm Swings / Circles – 1 min<br>2. Band Pull-Aparts – 15 reps<br>3. Wall Slides – 10 reps<br>4. Incline Push-Ups – 10 reps<br>5. Light DB Shoulder Press or DB Bench – 2 sets                                                     |
+| **Pull (5-day / 6-day hypertrophy)** | Back, Biceps                      | 1. Dead Hangs or Band Pull-Aparts – 30 sec<br>2. Scapular Pull-Ups – 10 reps<br>3. Face Pulls (band or DB) – 15 reps<br>4. Light DB Rows – 2 sets<br>5. Optional: Towel Rows                                                         |
+| **Legs (5-day / 6-day hypertrophy)** | Quads, Hams, Glutes, Calves       | 1. Jump Rope – 1–2 mins<br>2. Glute Bridges – 15 reps<br>3. Bodyweight Squats – 15 reps<br>4. Lunge + Twist – 10/side<br>5. Calf Raises – 15 reps<br>6. Optional: Sumo Squats                                                        |
+| **Push (6-day power)**               | Power – Chest, Shoulders, Triceps | 1. Jump Rope – 1 min<br>2. Explosive Push-Ups – 5–8 reps<br>3. Med Ball Chest Pass / OH Slam – 2x5<br>4. Warm-up Bench or OHP – 3–4 sets                                                                                             |
+| **Pull (6-day power)**               | Power – Back, Biceps              | 1. Rowing / Jump Rope – 2 mins<br>2. Power Band Rows – 10 reps<br>3. Kettlebell Swings / Explosive DB Rows – 2x8<br>4. Dead Hang – 30 sec<br>5. Warm-up Deadlifts/Rows – 3–4 sets                                                    |
+| **Legs (6-day power)**               | Power – Quads, Glutes, Hams       | 1. Jump Squats – 2x5<br>2. Glute Bridge Hold – 30 sec<br>3. Walking Lunges – 10/leg<br>4. Bounding or Med Ball Throws – 2x5<br>5. Warm-up Squats / Deadlifts – 3–4 sets                                                              |
